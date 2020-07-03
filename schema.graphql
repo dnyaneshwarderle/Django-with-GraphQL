@@ -1,0 +1,64 @@
+
+type Movies {
+  id: ID!
+  title: String
+  poster_path= String
+  backdrop_path= String
+  original_language= String
+  original_title= String
+  overview= String
+  release_date=String
+  popularity= Int
+  vote_count= Int
+  video= Boolean
+  adult= Boolean
+  genre_ids = [Int]
+}
+
+
+type watchlist {
+  id: ID!
+  title: String
+  codename:String
+  poster_path= String
+  backdrop_path= String
+  original_language= String
+  original_title= String
+  overview= String
+  release_date=String
+  popularity= Int
+  vote_count= Int
+  video= Boolean
+  adult= Boolean
+  genre_ids = [Int]
+}
+
+type Query {
+  movie(id: ID!): Movies
+  movies: [Movies]
+  watchlist: [watchlist]
+}
+
+input MovieInput {
+  id: ID
+  title: String
+  poster_path: String
+}
+
+type MoviePayload {
+  ok: Boolean
+  movie: Movies
+}
+
+type Mutation {
+  createPopularMovie(input: MovieInput) : MoviePayload
+  CreateUpcomingMovie(input: MovieInput) : MoviePayload
+  CreateLatestMovie(input: MovieInput) : MoviePayload
+
+  updateMovie(id: ID!, input: MovieInput) : MoviePayload
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
