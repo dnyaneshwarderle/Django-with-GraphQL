@@ -1,5 +1,5 @@
 mutation PupularMovie {
-  createMovie(input: {
+  popularMovie(input: {
       id:1
   }) {
     ok
@@ -10,7 +10,7 @@ mutation PupularMovie {
 }
 
 mutation LatestMovie{
-  createMovie(input: {
+  latestMovie(input: {
       id:1
   }) {
     ok
@@ -21,7 +21,7 @@ mutation LatestMovie{
 }
 
 mutation UpcomingMovie {
-  createMovie(input: {
+  upcomingMovie(input: {
       id:1
   }) {
     ok
@@ -71,17 +71,17 @@ query getMovies {
 }
 
 mutation CreateWatchList {
-  createMovie(input: {
+  watchList(input: {
       id:807,
       title:"Se7en",
-      poster_path:"/6yoghtyTpznpBik8EngEmJskVUO.jpg",
+      posterPath:"/6yoghtyTpznpBik8EngEmJskVUO.jpg",
       codename:"xyz"
   }) {
     ok
     movie{
      id
      title
-     poster_path
+     posterPath
      codename
     }
   }
@@ -105,6 +105,4 @@ query Recommendation {
   genreIds
   }
 }
-
-
 
